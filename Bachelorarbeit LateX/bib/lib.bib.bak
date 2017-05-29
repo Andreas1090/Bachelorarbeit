@@ -1,0 +1,12 @@
+% Encoding: UTF-8
+
+@Online{wurst:2016,
+  author  = {Hans Wurst},
+  title   = {Test Titel},
+  year    = {2017},
+  date    = {2017-05-30},
+  url     = {https://tex.stackexchange.com/questions/51079/add-retrieved-last-accessed-or-similar-information-to-authoryear-in-biblate},
+  urldate = {2017-05-21},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}

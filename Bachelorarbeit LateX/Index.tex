@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%   						     Preamble                                 %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%       
+%% here the document will be defined with the settings from above
+\documentclass[
+   12pt,                % Schriftgroesse 12pt
+   a4paper,             % Layout fuer Din A4
+   oneside,             % Layout fuer einseitigen Druck
+   headinclude,         % Kopfzeile wird Seiten-Layouts mit beruecksichtigt
+   headsepline,         % horizontale Linie unter Kolumnentitel
+%  footinclude,         % Kopfzeile wird Seiten-Layouts mit beruecksichtigt
+   footsepline,         % horizontale Linie unter Kolumnentitel
+%  plainheadsepline,    % horizontale Linie auch beim plain-Style
+   plainfootsepline,    % horizontale Linie auch beim plain-Style
+%  BCOR12mm,            % Korrektur fuer die Bindung
+   DIV17,               % DIV-Wert fuer die Erstellung des Satzspiegels, siehe scrguide
+%  halfparskip,         % Absatzabstand statt Absatzeinzug
+   openany,             % Kapitel können auf geraden und ungeraden Seiten beginnen
+   bibliography=totoc,  % Literaturverz. wird ins Inhaltsverzeichnis eingetragen
+   listof=totoc,		% Abbildungs und TabellenVZ ins InhaltsVZ
+%  pointlessnumbers,    % Kapitelnummern immer ohne Punkt
+   numbers=noenddot,
+%  tablecaptionabove,   % korrekte Abstände bei TabellenUEBERschriften
+   fleqn,               % fleqn: Glgen links (statt mittig)
+%  draft                % Keine Bilder in der Anzeige, overfull hboxes werden angezeigt
+   xcolor=table
+]{scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% 							Settings        							%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% This will load the parameter of the template like font, size etc.
+%% the command "\input{}" loads a file without showing it in the document.
+\input{lib/templatesettings}
+\bibliography{bib/lib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% 						Documents Section       			     		%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	TITLE-Page
+%----------------------------------------------------------------------------------------
+	\input{chapters/titlepage_alone}
+	\newpage
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+	\input{chapters/abstract}
+	\newpage
+	
+%----------------------------------------------------------------------------------------
+%	Explanation
+%----------------------------------------------------------------------------------------
+	\input{chapters/explanation}
+	\newpage
+	
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+	\pagenumbering{Roman} 
+	\setcounter{page}{1}
+	\begin{spacing}{1.0}
+ 		\tableofcontents
+ 		\newpage 
+ 		\listoffigures
+ 		\listoftables
+%		\lstlistoflistings
+	\end{spacing}
+	\newpage
+
+%----------------------------------------------------------------------------------------
+%	GLOSSAR
+%----------------------------------------------------------------------------------------
+	\input{chapters/glossary}
+	\newpage
+
+%----------------------------------------------------------------------------------------
+%	CHAPTERs
+%----------------------------------------------------------------------------------------
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+	\input{chapters/einleitung}
+	\input{chapters/grundlagen}
+	\input{chapters/ist_analyse}
+	\input{cahpters/fazit}
+ 
+	\newpage
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+	\begin{spacing}{1.0}
+		\printbibliography 
+	\end{spacing}
+	\newpage
+	
+%----------------------------------------------------------------------------------------
+%	APPENDIX
+%----------------------------------------------------------------------------------------
+	\appendix
+	\input{chapters/appendix}
+
+\end{document}
